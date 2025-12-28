@@ -25,3 +25,12 @@
 .nav-links li:hover {
   color: #00adb5;
 }
+
+.nav-links a{
+    color: white;
+    text-decoration: none;
+}
+
+.nav-links a:hover{
+    color: #00adb5;
+}
