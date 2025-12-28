@@ -16,7 +16,7 @@ function Hero() {
 
 
         <div className="hero-buttons">
-          <a href="/Charan_Ramagiri" target="_blank" rel="noopener noreferrer" className="btn primary"> View Resume </a>
+          <a href="/Charan_Ramagiri.pdf" target="_blank" rel="noopener noreferrer" className="btn primary"> View Resume </a>
 
           <button className="btn secondary">Contact Me</button>
         </div>
