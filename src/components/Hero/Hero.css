@@ -55,3 +55,8 @@
     background-color: #38bdf8;
     color: #0f172a;
 }
+.btn{
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+}
