@@ -1,6 +1,6 @@
 .projects{
     padding: 140px 40px;
-    background-color: #f1f5f9;
+    background-color: #f8fafc;
     text-align: center;
 }
 
@@ -37,10 +37,11 @@
 }
 
 .project-card {
-    background-color: rgb(181, 236, 105);
+    background-color: #f1f5f9;
     border-radius: 12px;
     text-align: left;
-    border: none;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.08);
 }
 
 .project-card.featured {

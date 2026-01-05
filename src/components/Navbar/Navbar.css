@@ -4,7 +4,7 @@
   align-items: center;
 
   padding: 20px 40px;
-  background-color: #111;
+  background-color: #0f172a;
   color: white;
 } 
 .logo {
@@ -23,7 +23,7 @@
 }
 
 .nav-links li:hover {
-  color: #00adb5;
+  color: #38bdf8;
 }
 
 .nav-links a{
@@ -32,5 +32,5 @@
 }
 
 .nav-links a:hover{
-    color: #00adb5;
+    color: #38bdf8;
 }
