@@ -1,71 +1,100 @@
-.hero{
+.hero {
     min-height: 90vh;
     display: flex;
     align-items: center;
     justify-content: center;
-
     background-color: #0f172a;
     color: white;
     padding: 40px;
 }
-.hero-content{
-    max-width: 800px;
+
+.hero-content {
+    max-width: 700px;
     text-align: center;
-}
-.hero h1{
-    font-size: 48px;
-    margin-bottom: 15px;
-}
-.hero h1 span{
-    color: #38bdf8;
-}
-.hero h2{
-    font-size: 24px;
-    margin-bottom: 20px;
-    font-weight: 400;
-}
-.hero p{
-    font-size: 18px;
-    line-height: 1.6;
-    margin-bottom: 30px;
-    color: #cbd5e1;
-}
-.hero-buttons{
     display: flex;
-    gap: 20px;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
 }
-.btn{
-    padding: 12px 24px;
-    font-size: 16px;
-    border-radius: 6px;
-    cursor: pointer;
-    border: none;
-}
-.primary{
-    background-color: #38bdf8;
-    color: #0f172a;
-}
-.secondary{
-    background-color: transparent;
-    color: white;
-    border: 1px solid #38bdf8;
-}
-.secondary:hover {
-    background-color: #38bdf8;
-    color: #0f172a;
-}
-.btn{
-    text-decoration: none;
-    display: inline-block;
-    text-align: center;
-}
-.hero-img{
+
+.hero-img {
     width: 140px;
     height: 140px;
     border-radius: 50%;
     object-fit: cover;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
     border: 3px solid #38bdf8;
+}
 
+.hero h1 {
+    font-size: 48px;
+    margin-bottom: 24px;
+    font-weight: 500;
+    line-height: 1.2;
+}
+
+.hero h1 span {
+    color: #38bdf8;
+}
+
+.hero h2 {
+    font-size: 22px;
+    margin-bottom: 32px;
+    font-weight: 400;
+    color: #cbd5e1;
+    line-height: 1.4;
+}
+
+.hero p {
+    font-size: 18px;
+    line-height: 1.7;
+    margin-bottom: 48px;
+    color: #cbd5e1;
+    max-width: 600px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    margin-bottom: 80px;
+}
+
+.btn {
+    padding: 12px 28px;
+    font-size: 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    border: none;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+    transition: all 0.2s ease;
+}
+
+.primary {
+    background-color: #38bdf8;
+    color: #0f172a;
+}
+
+.primary:hover {
+    background-color: #0ea5e9;
+}
+
+.secondary {
+    background-color: transparent;
+    color: white;
+    border: 1px solid #38bdf8;
+}
+
+.secondary:hover {
+    background-color: #38bdf8;
+    color: #0f172a;
+}
+
+.scroll-hint {
+    margin-top: auto;
+    color: #64748b;
+    font-size: 14px;
+    font-weight: 300;
+    letter-spacing: 0.5px;
 }

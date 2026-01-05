@@ -7,20 +7,24 @@ function Hero() {
       <div className="hero-content">
         <img src={profile} alt="Charan Ramagiri" className="hero-img" />
         <h1>
-          Hi, I'm <span>Charan</span>
+          Hi, I'm <span>Charan</span>.
         </h1>
 
-        <h2>B.Tech Final Year Student | Full Stack Developer</h2>
+        <h2>Final-year CS Student, Full Stack Developer</h2>
 
         <p>
-            Aspiring Full Stack Developer with hands-on experience in React, JavaScript, Python, and Flask. Passionate about building clean, scalable, and user-focused web applications.
+        Aspiring Full Stack Developer with hands-on experience in React, JavaScript, Python, and Node.js. Passionate about building clean, scalable, and user-focused web applications.
         </p>
 
-
         <div className="hero-buttons">
-          <a href="/Charan_Ramagiri.pdf" target="_blank" rel="noopener noreferrer" className="btn primary"> View Resume </a>
+          <a href="/Charan_Ramagiri.pdf" target="_blank" rel="noopener noreferrer" className="btn primary">
+            Resume
+          </a>
+          <button className="btn secondary">Contact</button>
+        </div>
 
-          <button className="btn secondary">Contact Me</button>
+        <div className="scroll-hint">
+          <span>Scroll to continue</span>
         </div>
       </div>
     </section>
