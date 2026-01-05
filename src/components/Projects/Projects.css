@@ -1,5 +1,5 @@
 .projects{
-    padding: 160px 40px;
+    padding: 140px 40px;
     background-color: #f1f5f9;
     text-align: center;
 }
@@ -25,7 +25,7 @@
 }
 
 .projects-intro{
-    margin-bottom: 64px;
+    margin-bottom: 56px;
     font-size: 19px;
     color: #475569;
     font-weight: 300;
@@ -33,7 +33,7 @@
 }
 
 .featured-project {
-    margin-bottom: 80px;
+    margin-bottom: 64px;
 }
 
 .project-card {
@@ -44,12 +44,12 @@
 }
 
 .project-card.featured {
-    padding: 48px;
+    padding: 40px;
     max-width: 100%;
 }
 
 .project-card.secondary {
-    padding: 32px;
+    padding: 28px;
 }
 
 .project-card h3{
@@ -100,7 +100,7 @@
 }
 
 .other-projects {
-    margin-top: 80px;
+    margin-top: 64px;
 }
 
 .projects-container{

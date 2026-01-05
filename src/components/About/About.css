@@ -1,5 +1,5 @@
 .about{
-    padding: 160px 40px;
+    padding: 140px 40px;
     background-color: #f8fafc;
     color: #0f172a;
 }
@@ -30,4 +30,8 @@
     margin-bottom: 24px;
     color: #475569;
     font-weight: 300;
+}
+
+.about p:last-child {
+    margin-bottom: 0;
 }
