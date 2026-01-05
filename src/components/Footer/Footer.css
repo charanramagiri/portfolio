@@ -1,9 +1,19 @@
 .footer{
     background-color: #020617;
-    color: #64748b;
+    color: #475569;
     text-align: center;
-    padding: 40px 20px;
-    font-size: 14px;
+    padding: 60px 20px 40px;
+    font-size: 13px;
     font-weight: 300;
     border: none;
+}
+
+.footer-text {
+    margin-bottom: 8px;
+    color: #64748b;
+}
+
+.footer-built {
+    color: #475569;
+    font-size: 12px;
 }
