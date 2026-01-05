@@ -13,7 +13,7 @@ function Hero() {
         <h2>Final-year CS Student, Full Stack Developer</h2>
 
         <p>
-        Aspiring Full Stack Developer with hands-on experience in React, JavaScript, Python, and Node.js. Passionate about building clean, scalable, and user-focused web applications.
+        I build web applications using React, JavaScript, Python, and Node.js. Currently looking for internship and entry-level full stack developer roles.
         </p>
 
         <div className="hero-buttons">

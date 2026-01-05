@@ -9,11 +9,11 @@ function About() {
         <h2>A little about me</h2>
 
         <p>
-        I am a Computer Science undergraduate currently in my final year of B.Tech with a strong interest in full stack web development and problem solving.
+        I'm a final-year Computer Science student (B.Tech) focused on full stack web development. I build projects using React, JavaScript, Node.js, SQL, and occasionally explore Machine Learning.
         </p>
 
         <p>
-        I have worked on academic and personal projects involving React, Flask, SQL, and Machine Learning. I am actively seeking internship and entry-level opportunities to apply my skills and grow as a software developer.
+        I'm actively seeking internship and entry-level full stack developer opportunities where I can apply what I've learned and continue growing.
         </p>
 
       </div>

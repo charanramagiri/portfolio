@@ -2,7 +2,7 @@ const projects = [
   {
     title: "HeartGuard: Stroke Risk & Rescue",
     description:
-      "A healthcare web application that predicts heart stroke risk using Machine Learning (Logistic Regression) with 94% accuracy. Includes user authentication, doctor connection, and structured health record storage.",
+      "A healthcare web application that predicts stroke risk using Machine Learning (Logistic Regression). Features include user authentication, patient-doctor matching, and health record management.",
     tech: "Python, Flask, SQLite, HTML, CSS, JavaScript, Machine Learning",
     github: "https://github.com/your-github/heartguard",
   },

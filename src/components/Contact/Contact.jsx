@@ -7,7 +7,7 @@ function Contact() {
         <p className="section-transition">Let's connect.</p>
 
         <p className="contact-intro">
-          If you think my work aligns with what you're looking for, I'd be happy to connect. I'm open to internship and entry-level opportunities where I can contribute and continue learning.
+          I'm actively seeking internship and entry-level full stack developer roles. If you think my work aligns with what you're looking for, I'd be happy to connect.
         </p>
 
         <p className="contact-closing">
