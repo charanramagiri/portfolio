@@ -1,22 +1,33 @@
 .about{
-    padding: 80px 40px;
+    padding: 160px 40px;
     background-color: #f8fafc;
     color: #0f172a;
 }
 .about-container{
-    max-width: 900px;
+    max-width: 750px;
     margin: 0 auto;
     text-align: center;
 }
 
+.section-transition {
+    font-size: 17px;
+    color: #64748b;
+    margin-bottom: 48px;
+    font-weight: 300;
+    font-style: italic;
+}
+
 .about h2{
-    font-size: 36px;
-    margin-bottom: 25px;
+    font-size: 32px;
+    margin-bottom: 40px;
+    font-weight: 400;
+    color: #0f172a;
 }
 
 .about p{
-    font-size: 18px;
-    line-height: 1.7;
-    margin-bottom: 15px;
-    color: #334155;
+    font-size: 19px;
+    line-height: 1.8;
+    margin-bottom: 24px;
+    color: #475569;
+    font-weight: 300;
 }

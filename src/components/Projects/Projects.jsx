@@ -4,9 +4,12 @@ import projects from "../../data/projects";
 function Projects() {
   return (
     <section className="projects" id="projects">
-      <h2>Projects</h2>
+      <div className="projects-wrapper">
+        <p className="section-transition">Here are some things I've built.</p>
+        
+        <h2>Things I've built</h2>
 
-      <p className="projects-intro"> Below are some of the projects I’ve built to apply my skills in real-world scenarios. </p>
+        <p className="projects-intro">Below are some of the projects I've built to apply my skills in real-world scenarios.</p>
 
 
       <div className="projects-container">
@@ -32,6 +35,7 @@ function Projects() {
             </a>
           </div>
         ))}
+      </div>
       </div>
     </section>
   );

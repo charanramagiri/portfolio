@@ -4,7 +4,9 @@ function About() {
   return (
     <section className="about" id="about">
       <div className="about-container">
-        <h2>About Me</h2>
+        <p className="section-transition">Let me tell you a bit about myself.</p>
+        
+        <h2>A little about me</h2>
 
         <p>
         I am a Computer Science undergraduate currently in my final year of B.Tech with a strong interest in full stack web development and problem solving.

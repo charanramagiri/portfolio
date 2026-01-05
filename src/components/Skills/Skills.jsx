@@ -3,9 +3,12 @@ import "./Skills.css";
 function Skills() {
   return (
     <section className="skills" id="skills">
-      <h2>Skills</h2>
+      <div className="skills-wrapper">
+        <p className="section-transition">Here's what I work with.</p>
+        
+        <h2>What I work with</h2>
 
-      <div className="skills-container">
+        <div className="skills-container">
         <div className="skill-card">
           <h3>Programming</h3>
           <p>Java, JavaScript, Python</p>
@@ -30,6 +33,7 @@ function Skills() {
           <h3>Tools</h3>
           <p>Git, GitHub, VS Code</p>
         </div>
+      </div>
       </div>
     </section>
   );
