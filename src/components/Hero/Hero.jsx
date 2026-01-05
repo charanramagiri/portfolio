@@ -1,9 +1,11 @@
 import "./Hero.css";
+import profile from "../../assets/images/profile.jpg";
 
 function Hero() {
   return (
     <section className="hero">
       <div className="hero-content">
+        <img src={profile} alt="Charan Ramagiri" className="hero-img" />
         <h1>
           Hi, I'm <span>Charan</span>
         </h1>

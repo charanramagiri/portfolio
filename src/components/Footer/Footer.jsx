@@ -3,9 +3,8 @@ import "./Footer.css";
 function Footer() {
   return (
     <footer className="footer">
-      <p>
-        © {new Date().getFullYear()} Charan Ramagiri. All rights reserved.
-      </p>
+      <p>Built with ❤️ using React & Vite | © {new Date().getFullYear()} Charan Ramagiri </p>
+
     </footer>
   );
 }

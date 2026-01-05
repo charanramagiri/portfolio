@@ -6,6 +6,9 @@ function Projects() {
     <section className="projects" id="projects">
       <h2>Projects</h2>
 
+      <p className="projects-intro"> Below are some of the projects I’ve built to apply my skills in real-world scenarios. </p>
+
+
       <div className="projects-container">
         {projects.map((project, index) => (
           <div className="project-card" key={index}>

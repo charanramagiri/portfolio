@@ -43,3 +43,7 @@
 .project-link:hover{
     text-decoration: underline;
 }
+.projects-intro{
+    margin-bottom: 35px;
+    font-size: 20px;
+}

@@ -7,7 +7,7 @@ function About() {
         <h2>About Me</h2>
 
         <p>
-        I am a Computer Science undergraduate currently in my final year of B.Tech. I have a strong foundation in Java, Data Structures, and web development.
+        I am a Computer Science undergraduate currently in my final year of B.Tech with a strong interest in full stack web development and problem solving.
         </p>
 
         <p>
