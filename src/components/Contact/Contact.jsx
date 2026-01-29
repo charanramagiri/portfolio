@@ -1,5 +1,5 @@
 import "./Contact.css";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import AnimatedText from "../AnimatedText/AnimatedText";
 
 const containerVariants = {
@@ -9,6 +9,17 @@ const containerVariants = {
     transition: {
       staggerChildren: 0.12,
       delayChildren: 0.5,
+    },
+  },
+};
+
+const containerVariantsReduced = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0,
+      delayChildren: 0,
     },
   },
 };
@@ -25,7 +36,20 @@ const itemVariants = {
   },
 };
 
+const itemVariantsReduced = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      duration: 0.2,
+    },
+  },
+};
+
 function Contact() {
+  const shouldReduceMotion = useReducedMotion();
+  const containerVariant = shouldReduceMotion ? containerVariantsReduced : containerVariants;
+  const itemVariant = shouldReduceMotion ? itemVariantsReduced : itemVariants;
   return (
     <motion.section
       className="contact"
@@ -33,20 +57,20 @@ function Contact() {
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.3 }}
-      variants={containerVariants}
+      variants={containerVariant}
     >
       <div className="contact-wrapper">
         <AnimatedText text="Let's connect." as="p" className="section-transition" />
 
-        <motion.p className="contact-intro" variants={itemVariants}>
+        <motion.p className="contact-intro" variants={itemVariant}>
           I'm actively seeking internship and entry-level full stack developer roles. If you think my work aligns with what you're looking for, I'd be happy to connect.
         </motion.p>
 
-        <motion.p className="contact-closing" variants={itemVariants}>
+        <motion.p className="contact-closing" variants={itemVariant}>
           Feel free to reach out through any of these channels.
         </motion.p>
 
-        <motion.div className="contact-links" variants={itemVariants}>
+        <motion.div className="contact-links" variants={itemVariant}>
           <a href="mailto:charanramagiri2004@gmail.com">
             📧 charanramagiri2004@gmail.com
           </a>

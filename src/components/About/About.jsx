@@ -1,5 +1,5 @@
 import "./About.css";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import AnimatedText from "../AnimatedText/AnimatedText";
 
 const containerVariants = {
@@ -9,6 +9,17 @@ const containerVariants = {
     transition: {
       staggerChildren: 0.12,
       delayChildren: 0.5,
+    },
+  },
+};
+
+const containerVariantsReduced = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0,
+      delayChildren: 0,
     },
   },
 };
@@ -25,7 +36,20 @@ const itemVariants = {
   },
 };
 
+const itemVariantsReduced = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      duration: 0.2,
+    },
+  },
+};
+
 function About() {
+  const shouldReduceMotion = useReducedMotion();
+  const containerVariant = shouldReduceMotion ? containerVariantsReduced : containerVariants;
+  const itemVariant = shouldReduceMotion ? itemVariantsReduced : itemVariants;
   return (
     <motion.section
       className="about"
@@ -33,18 +57,18 @@ function About() {
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.3 }}
-      variants={containerVariants}
+      variants={containerVariant}
     >
       <div className="about-container">
         <AnimatedText text="Let me tell you a bit about myself." as="p" className="section-transition" />
         
         <AnimatedText text="A little about me" as="h2" />
 
-        <motion.p variants={itemVariants}>
+        <motion.p variants={itemVariant}>
           I'm a final-year Computer Science student (B.Tech) focused on full stack web development. I build projects using React, JavaScript, Node.js, SQL, and occasionally explore Machine Learning.
         </motion.p>
 
-        <motion.p variants={itemVariants}>
+        <motion.p variants={itemVariant}>
           I'm actively seeking internship and entry-level full stack developer opportunities where I can apply what I've learned and continue growing.
         </motion.p>
 

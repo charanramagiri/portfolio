@@ -1,6 +1,6 @@
 import "./Projects.css";
 import projects from "../../data/projects";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import AnimatedText from "../AnimatedText/AnimatedText";
 
 const containerVariants = {
@@ -10,6 +10,17 @@ const containerVariants = {
     transition: {
       staggerChildren: 0.12,
       delayChildren: 0.5,
+    },
+  },
+};
+
+const containerVariantsReduced = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0,
+      delayChildren: 0,
     },
   },
 };
@@ -26,6 +37,16 @@ const itemVariants = {
   },
 };
 
+const itemVariantsReduced = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      duration: 0.2,
+    },
+  },
+};
+
 const cardVariants = {
   hidden: { opacity: 0, y: 30 },
   visible: {
@@ -34,6 +55,16 @@ const cardVariants = {
     transition: {
       duration: 0.75,
       ease: [0.25, 0.1, 0.25, 1],
+    },
+  },
+};
+
+const cardVariantsReduced = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      duration: 0.2,
     },
   },
 };
@@ -51,21 +82,36 @@ const featuredCardVariants = {
   },
 };
 
+const featuredCardVariantsReduced = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      duration: 0.2,
+    },
+  },
+};
+
 function ProjectCard({ project, index = 0 }) {
+  const shouldReduceMotion = useReducedMotion();
   // Vary initial y slightly for depth effect
-  const initialY = 30 + (index % 3) * 5;
+  const initialY = shouldReduceMotion ? 0 : 30 + (index % 3) * 5;
   
   return (
     <motion.div
       className="project-card secondary"
-      initial={{ opacity: 0, y: initialY }}
-      whileInView={{ opacity: 1, y: 0 }}
+      initial={shouldReduceMotion ? { opacity: 0 } : { opacity: 0, y: initialY }}
+      whileInView={shouldReduceMotion ? { opacity: 1 } : { opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}
-      transition={{
-        duration: 0.75,
-        ease: [0.25, 0.1, 0.25, 1],
-        delay: index * 0.1,
-      }}
+      transition={
+        shouldReduceMotion
+          ? { duration: 0.2 }
+          : {
+              duration: 0.75,
+              ease: [0.25, 0.1, 0.25, 1],
+              delay: index * 0.1,
+            }
+      }
     >
       <h3>{project.title}</h3>
 
@@ -90,8 +136,12 @@ function ProjectCard({ project, index = 0 }) {
 }
 
 function Projects() {
+  const shouldReduceMotion = useReducedMotion();
   const featuredProject = projects[0];
   const otherProjects = projects.slice(1);
+  const containerVariant = shouldReduceMotion ? containerVariantsReduced : containerVariants;
+  const itemVariant = shouldReduceMotion ? itemVariantsReduced : itemVariants;
+  const featuredCardVariant = shouldReduceMotion ? featuredCardVariantsReduced : featuredCardVariants;
 
   return (
     <motion.section
@@ -100,20 +150,20 @@ function Projects() {
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.2 }}
-      variants={containerVariants}
+      variants={containerVariant}
     >
       <div className="projects-wrapper">
         <AnimatedText text="Here are some things I've built." as="p" className="section-transition" />
         
         <AnimatedText text="Selected work" as="h2" />
 
-        <motion.p className="projects-intro" variants={itemVariants}>
+        <motion.p className="projects-intro" variants={itemVariant}>
           Here's a small selection of things I've built.
         </motion.p>
 
         <motion.div
           className="featured-project"
-          variants={featuredCardVariants}
+          variants={featuredCardVariant}
         >
           <div className="project-card featured">
             <h3>{featuredProject.title}</h3>
@@ -140,9 +190,9 @@ function Projects() {
         {otherProjects.length > 0 && (
           <motion.div
             className="other-projects"
-            variants={containerVariants}
+            variants={containerVariant}
           >
-            <motion.div className="projects-container" variants={containerVariants}>
+            <motion.div className="projects-container" variants={containerVariant}>
               {otherProjects.map((project, index) => (
                 <ProjectCard
                   key={index}
