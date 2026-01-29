@@ -38,6 +38,57 @@ const cardVariants = {
   },
 };
 
+// Variants for featured project with subtle depth
+const featuredCardVariants = {
+  hidden: { opacity: 0, y: 40 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.7,
+      ease: [0.4, 0, 0.2, 1],
+    },
+  },
+};
+
+function ProjectCard({ project, index = 0 }) {
+  // Vary initial y slightly for depth effect
+  const initialY = 30 + (index % 3) * 5;
+  
+  return (
+    <motion.div
+      className="project-card secondary"
+      initial={{ opacity: 0, y: initialY }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{
+        duration: 0.6,
+        ease: [0.4, 0, 0.2, 1],
+        delay: index * 0.05,
+      }}
+    >
+      <h3>{project.title}</h3>
+
+      <p className="project-description">
+        {project.description}
+      </p>
+
+      <p className="project-tech">
+        <strong>Tech Stack:</strong> {project.tech}
+      </p>
+
+      <a
+        href={project.github}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="project-link"
+      >
+        View on GitHub
+      </a>
+    </motion.div>
+  );
+}
+
 function Projects() {
   const featuredProject = projects[0];
   const otherProjects = projects.slice(1);
@@ -60,7 +111,10 @@ function Projects() {
           Here's a small selection of things I've built.
         </motion.p>
 
-        <motion.div className="featured-project" variants={itemVariants}>
+        <motion.div
+          className="featured-project"
+          variants={featuredCardVariants}
+        >
           <div className="project-card featured">
             <h3>{featuredProject.title}</h3>
 
@@ -90,30 +144,11 @@ function Projects() {
           >
             <motion.div className="projects-container" variants={containerVariants}>
               {otherProjects.map((project, index) => (
-                <motion.div
-                  className="project-card secondary"
+                <ProjectCard
                   key={index}
-                  variants={cardVariants}
-                >
-                  <h3>{project.title}</h3>
-
-                  <p className="project-description">
-                    {project.description}
-                  </p>
-
-                  <p className="project-tech">
-                    <strong>Tech Stack:</strong> {project.tech}
-                  </p>
-
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="project-link"
-                  >
-                    View on GitHub
-                  </a>
-                </motion.div>
+                  project={project}
+                  index={index}
+                />
               ))}
             </motion.div>
           </motion.div>

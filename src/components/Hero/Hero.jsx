@@ -105,8 +105,29 @@ function Hero() {
 
         <div className="hero-right">
           <div className="hero-image-wrapper">
-            <div className="hero-blob"></div>
-            <img src={profile} alt="Charan Ramagiri" className="hero-img" />
+            <motion.div
+              className="hero-blob"
+              initial={{ y: 40, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{
+                duration: 0.8,
+                ease: [0.4, 0, 0.2, 1],
+              }}
+            />
+            <motion.img
+              src={profile}
+              alt="Charan Ramagiri"
+              className="hero-img"
+              initial={{ y: 50, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{
+                duration: 0.9,
+                ease: [0.4, 0, 0.2, 1],
+                delay: 0.1,
+              }}
+            />
           </div>
         </div>
       </div>
