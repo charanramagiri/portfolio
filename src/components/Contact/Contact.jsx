@@ -1,20 +1,53 @@
 import "./Contact.css";
+import { motion } from "framer-motion";
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.15,
+      delayChildren: 0.1,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.7,
+      ease: [0.4, 0, 0.2, 1],
+    },
+  },
+};
 
 function Contact() {
   return (
-    <section className="contact" id="contact">
+    <motion.section
+      className="contact"
+      id="contact"
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.3 }}
+      variants={containerVariants}
+    >
       <div className="contact-wrapper">
-        <p className="section-transition">Let's connect.</p>
+        <motion.p className="section-transition" variants={itemVariants}>
+          Let's connect.
+        </motion.p>
 
-        <p className="contact-intro">
+        <motion.p className="contact-intro" variants={itemVariants}>
           I'm actively seeking internship and entry-level full stack developer roles. If you think my work aligns with what you're looking for, I'd be happy to connect.
-        </p>
+        </motion.p>
 
-        <p className="contact-closing">
+        <motion.p className="contact-closing" variants={itemVariants}>
           Feel free to reach out through any of these channels.
-        </p>
+        </motion.p>
 
-        <div className="contact-links">
+        <motion.div className="contact-links" variants={itemVariants}>
           <a href="mailto:charanramagiri2004@gmail.com">
             📧 charanramagiri2004@gmail.com
           </a>
@@ -34,9 +67,9 @@ function Contact() {
           >
             💻 GitHub
           </a>
-        </div>
+        </motion.div>
       </div>
-    </section>
+    </motion.section>
   );
 }
 

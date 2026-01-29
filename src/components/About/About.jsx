@@ -1,23 +1,56 @@
 import "./About.css";
+import { motion } from "framer-motion";
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.15,
+      delayChildren: 0.1,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.7,
+      ease: [0.4, 0, 0.2, 1],
+    },
+  },
+};
 
 function About() {
   return (
-    <section className="about" id="about">
+    <motion.section
+      className="about"
+      id="about"
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.3 }}
+      variants={containerVariants}
+    >
       <div className="about-container">
-        <p className="section-transition">Let me tell you a bit about myself.</p>
+        <motion.p className="section-transition" variants={itemVariants}>
+          Let me tell you a bit about myself.
+        </motion.p>
         
-        <h2>A little about me</h2>
+        <motion.h2 variants={itemVariants}>A little about me</motion.h2>
 
-        <p>
-        I'm a final-year Computer Science student (B.Tech) focused on full stack web development. I build projects using React, JavaScript, Node.js, SQL, and occasionally explore Machine Learning.
-        </p>
+        <motion.p variants={itemVariants}>
+          I'm a final-year Computer Science student (B.Tech) focused on full stack web development. I build projects using React, JavaScript, Node.js, SQL, and occasionally explore Machine Learning.
+        </motion.p>
 
-        <p>
-        I'm actively seeking internship and entry-level full stack developer opportunities where I can apply what I've learned and continue growing.
-        </p>
+        <motion.p variants={itemVariants}>
+          I'm actively seeking internship and entry-level full stack developer opportunities where I can apply what I've learned and continue growing.
+        </motion.p>
 
       </div>
-    </section>
+    </motion.section>
   );
 }
 

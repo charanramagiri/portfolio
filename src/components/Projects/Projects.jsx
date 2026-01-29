@@ -1,20 +1,67 @@
 import "./Projects.css";
 import projects from "../../data/projects";
+import { motion } from "framer-motion";
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.12,
+      delayChildren: 0.1,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.7,
+      ease: [0.4, 0, 0.2, 1],
+    },
+  },
+};
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.6,
+      ease: [0.4, 0, 0.2, 1],
+    },
+  },
+};
 
 function Projects() {
   const featuredProject = projects[0];
   const otherProjects = projects.slice(1);
 
   return (
-    <section className="projects" id="projects">
+    <motion.section
+      className="projects"
+      id="projects"
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.2 }}
+      variants={containerVariants}
+    >
       <div className="projects-wrapper">
-        <p className="section-transition">Here are some things I've built.</p>
+        <motion.p className="section-transition" variants={itemVariants}>
+          Here are some things I've built.
+        </motion.p>
         
-        <h2>Selected work</h2>
+        <motion.h2 variants={itemVariants}>Selected work</motion.h2>
 
-        <p className="projects-intro">Here's a small selection of things I've built.</p>
+        <motion.p className="projects-intro" variants={itemVariants}>
+          Here's a small selection of things I've built.
+        </motion.p>
 
-        <div className="featured-project">
+        <motion.div className="featured-project" variants={itemVariants}>
           <div className="project-card featured">
             <h3>{featuredProject.title}</h3>
 
@@ -35,13 +82,20 @@ function Projects() {
               View on GitHub
             </a>
           </div>
-        </div>
+        </motion.div>
 
         {otherProjects.length > 0 && (
-          <div className="other-projects">
-            <div className="projects-container">
+          <motion.div
+            className="other-projects"
+            variants={containerVariants}
+          >
+            <motion.div className="projects-container" variants={containerVariants}>
               {otherProjects.map((project, index) => (
-                <div className="project-card secondary" key={index}>
+                <motion.div
+                  className="project-card secondary"
+                  key={index}
+                  variants={cardVariants}
+                >
                   <h3>{project.title}</h3>
 
                   <p className="project-description">
@@ -60,13 +114,13 @@ function Projects() {
                   >
                     View on GitHub
                   </a>
-                </div>
+                </motion.div>
               ))}
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         )}
       </div>
-    </section>
+    </motion.section>
   );
 }
 
