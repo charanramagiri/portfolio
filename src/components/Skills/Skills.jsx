@@ -1,5 +1,6 @@
 import "./Skills.css";
 import { motion } from "framer-motion";
+import AnimatedText from "../AnimatedText/AnimatedText";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -47,11 +48,9 @@ function Skills() {
       variants={containerVariants}
     >
       <div className="skills-wrapper">
-        <motion.p className="section-transition" variants={itemVariants}>
-          Here's what I work with.
-        </motion.p>
+        <AnimatedText text="Here's what I work with." as="p" className="section-transition" />
         
-        <motion.h2 variants={itemVariants}>What I work with</motion.h2>
+        <AnimatedText text="What I work with" as="h2" />
 
         <motion.div
           className="skills-container"

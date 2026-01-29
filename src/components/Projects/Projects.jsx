@@ -1,6 +1,7 @@
 import "./Projects.css";
 import projects from "../../data/projects";
 import { motion } from "framer-motion";
+import AnimatedText from "../AnimatedText/AnimatedText";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -51,11 +52,9 @@ function Projects() {
       variants={containerVariants}
     >
       <div className="projects-wrapper">
-        <motion.p className="section-transition" variants={itemVariants}>
-          Here are some things I've built.
-        </motion.p>
+        <AnimatedText text="Here are some things I've built." as="p" className="section-transition" />
         
-        <motion.h2 variants={itemVariants}>Selected work</motion.h2>
+        <AnimatedText text="Selected work" as="h2" />
 
         <motion.p className="projects-intro" variants={itemVariants}>
           Here's a small selection of things I've built.

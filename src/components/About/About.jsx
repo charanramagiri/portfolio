@@ -1,5 +1,6 @@
 import "./About.css";
 import { motion } from "framer-motion";
+import AnimatedText from "../AnimatedText/AnimatedText";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -35,11 +36,9 @@ function About() {
       variants={containerVariants}
     >
       <div className="about-container">
-        <motion.p className="section-transition" variants={itemVariants}>
-          Let me tell you a bit about myself.
-        </motion.p>
+        <AnimatedText text="Let me tell you a bit about myself." as="p" className="section-transition" />
         
-        <motion.h2 variants={itemVariants}>A little about me</motion.h2>
+        <AnimatedText text="A little about me" as="h2" />
 
         <motion.p variants={itemVariants}>
           I'm a final-year Computer Science student (B.Tech) focused on full stack web development. I build projects using React, JavaScript, Node.js, SQL, and occasionally explore Machine Learning.

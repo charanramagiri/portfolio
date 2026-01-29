@@ -1,5 +1,6 @@
 import "./Contact.css";
 import { motion } from "framer-motion";
+import AnimatedText from "../AnimatedText/AnimatedText";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -35,9 +36,7 @@ function Contact() {
       variants={containerVariants}
     >
       <div className="contact-wrapper">
-        <motion.p className="section-transition" variants={itemVariants}>
-          Let's connect.
-        </motion.p>
+        <AnimatedText text="Let's connect." as="p" className="section-transition" />
 
         <motion.p className="contact-intro" variants={itemVariants}>
           I'm actively seeking internship and entry-level full stack developer roles. If you think my work aligns with what you're looking for, I'd be happy to connect.
