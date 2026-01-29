@@ -1,6 +1,7 @@
 import "./Hero.css";
 import profile from "../../assets/images/profile.jpg";
 import { motion, useReducedMotion } from "framer-motion";
+import TypingText from "./TypingText";
 
 const wordVariants = {
   hidden: { opacity: 0, y: 20 },
@@ -49,7 +50,6 @@ const containerVariantsReduced = {
 function Hero() {
   const shouldReduceMotion = useReducedMotion();
   const h1Words = ["Hi,", "I'm"];
-  const h2Words = "Final-year CS Student, Full Stack Developer".split(" ");
   const wordVariant = shouldReduceMotion ? wordVariantsReduced : wordVariants;
   const containerVariant = shouldReduceMotion ? containerVariantsReduced : containerVariants;
 
@@ -104,13 +104,8 @@ function Hero() {
                 variants={containerVariant}
                 style={{ display: "inline-block" }}
               >
-                {h2Words.map((word, index) => (
-                  <span key={index} style={{ display: "inline-block", marginRight: "0.25em" }}>
-                    <motion.span variants={wordVariant} style={{ display: "inline-block" }}>
-                      {word}
-                    </motion.span>
-                  </span>
-                ))}
+                
+                <TypingText />
               </motion.span>
             </h2>
 

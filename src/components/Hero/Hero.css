@@ -82,6 +82,22 @@
     line-height: 1.4;
 }
 
+.typing-cursor {
+    display: inline-block;
+    margin-left: 2px;
+    color: #38bdf8;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0%, 50% {
+        opacity: 1;
+    }
+    51%, 100% {
+        opacity: 0;
+    }
+}
+
 .hero p {
     font-size: 19px;
     line-height: 1.8;
