@@ -8,8 +8,8 @@ const wordVariants = {
     opacity: 1,
     y: 0,
     transition: {
-      duration: 0.3,
-      ease: [0.4, 0, 0.2, 1],
+      duration: 0.35,
+      ease: [0.25, 0.1, 0.25, 1],
     },
   },
 };
@@ -19,8 +19,8 @@ const containerVariants = {
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.05,
-      delayChildren: 0.1,
+      staggerChildren: 0.08,
+      delayChildren: 0.15,
     },
   },
 };
@@ -111,8 +111,8 @@ function Hero() {
               whileInView={{ y: 0, opacity: 1 }}
               viewport={{ once: true, amount: 0.3 }}
               transition={{
-                duration: 0.8,
-                ease: [0.4, 0, 0.2, 1],
+                duration: 0.9,
+                ease: [0.25, 0.1, 0.25, 1],
               }}
             />
             <motion.img
@@ -123,9 +123,9 @@ function Hero() {
               whileInView={{ y: 0, opacity: 1 }}
               viewport={{ once: true, amount: 0.3 }}
               transition={{
-                duration: 0.9,
-                ease: [0.4, 0, 0.2, 1],
-                delay: 0.1,
+                duration: 1.0,
+                ease: [0.25, 0.1, 0.25, 1],
+                delay: 0.15,
               }}
             />
           </div>

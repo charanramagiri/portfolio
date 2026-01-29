@@ -7,8 +7,8 @@ const containerVariants = {
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.1,
-      delayChildren: 0.1,
+      staggerChildren: 0.12,
+      delayChildren: 0.5,
     },
   },
 };
@@ -19,8 +19,8 @@ const itemVariants = {
     opacity: 1,
     y: 0,
     transition: {
-      duration: 0.7,
-      ease: [0.4, 0, 0.2, 1],
+      duration: 0.85,
+      ease: [0.25, 0.1, 0.25, 1],
     },
   },
 };
@@ -31,8 +31,19 @@ const cardVariants = {
     opacity: 1,
     y: 0,
     transition: {
-      duration: 0.6,
-      ease: [0.4, 0, 0.2, 1],
+      duration: 0.75,
+      ease: [0.25, 0.1, 0.25, 1],
+    },
+  },
+};
+
+const skillsContainerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+      delayChildren: 0.3,
     },
   },
 };
@@ -54,7 +65,7 @@ function Skills() {
 
         <motion.div
           className="skills-container"
-          variants={containerVariants}
+          variants={skillsContainerVariants}
         >
           <motion.div className="skill-card" variants={cardVariants}>
             <h3>Programming</h3>

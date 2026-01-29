@@ -9,7 +9,7 @@ const containerVariants = {
     opacity: 1,
     transition: {
       staggerChildren: 0.12,
-      delayChildren: 0.1,
+      delayChildren: 0.5,
     },
   },
 };
@@ -20,8 +20,8 @@ const itemVariants = {
     opacity: 1,
     y: 0,
     transition: {
-      duration: 0.7,
-      ease: [0.4, 0, 0.2, 1],
+      duration: 0.85,
+      ease: [0.25, 0.1, 0.25, 1],
     },
   },
 };
@@ -32,8 +32,8 @@ const cardVariants = {
     opacity: 1,
     y: 0,
     transition: {
-      duration: 0.6,
-      ease: [0.4, 0, 0.2, 1],
+      duration: 0.75,
+      ease: [0.25, 0.1, 0.25, 1],
     },
   },
 };
@@ -45,8 +45,8 @@ const featuredCardVariants = {
     opacity: 1,
     y: 0,
     transition: {
-      duration: 0.7,
-      ease: [0.4, 0, 0.2, 1],
+      duration: 0.85,
+      ease: [0.25, 0.1, 0.25, 1],
     },
   },
 };
@@ -62,9 +62,9 @@ function ProjectCard({ project, index = 0 }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}
       transition={{
-        duration: 0.6,
-        ease: [0.4, 0, 0.2, 1],
-        delay: index * 0.05,
+        duration: 0.75,
+        ease: [0.25, 0.1, 0.25, 1],
+        delay: index * 0.1,
       }}
     >
       <h3>{project.title}</h3>
