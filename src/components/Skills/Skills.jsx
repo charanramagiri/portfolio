@@ -115,28 +115,43 @@ function Skills() {
           variants={skillsContainerVariant}
         >
           <motion.div className="skill-card" variants={cardVariant}>
-            <h3>Programming</h3>
-            <p>Java, JavaScript, Python</p>
+            <h3>Programming & DSA</h3>
+            <div className="skill-content">
+              <p>Java (Core, OOPs, Collections)</p>
+              <p>Arrays, Strings, Recursion</p>
+              <p>Trees, Graphs, Dynamic Programming</p>
+              <p>Time & Space Complexity</p>
+            </div>
           </motion.div>
 
           <motion.div className="skill-card" variants={cardVariant}>
-            <h3>Frontend</h3>
-            <p>HTML, CSS, React</p>
+            <h3>Web Development</h3>
+            <div className="skill-content">
+              <p>HTML, CSS, JavaScript</p>
+              <p>React.js</p>
+              <p>REST APIs</p>
+              <p>Authentication (Basics)</p>
+            </div>
           </motion.div>
 
           <motion.div className="skill-card" variants={cardVariant}>
-            <h3>Backend</h3>
-            <p>Node.js, Flask</p>
+            <h3>Backend & Databases</h3>
+            <div className="skill-content">
+              <p>SQL & CRUD Operations</p>
+              <p>PostgreSQL, SQLite</p>
+              <p>MongoDB</p>
+              <p>JSON Handling</p>
+            </div>
           </motion.div>
 
           <motion.div className="skill-card" variants={cardVariant}>
-            <h3>Database</h3>
-            <p>SQLite, MySQL</p>
-          </motion.div>
-
-          <motion.div className="skill-card" variants={cardVariant}>
-            <h3>Tools</h3>
-            <p>Git, GitHub, VS Code</p>
+            <h3>Tools & Other Skills</h3>
+            <div className="skill-content">
+              <p>Git & GitHub</p>
+              <p>MERN Stack (Conceptual)</p>
+              <p>Problem Solving</p>
+              <p>Python, C, C++</p>
+            </div>
           </motion.div>
         </motion.div>
       </div>
