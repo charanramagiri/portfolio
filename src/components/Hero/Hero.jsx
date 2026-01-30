@@ -1,6 +1,8 @@
 import "./Hero.css";
 import profile from "../../assets/images/profile.jpg";
 import { motion, useReducedMotion } from "framer-motion";
+import { FaGithub, FaLinkedinIn } from "react-icons/fa";
+import { MdEmail } from "react-icons/md";
 import TypingText from "./TypingText";
 
 const wordVariants = {
@@ -59,13 +61,13 @@ function Hero() {
         <div className="hero-left">
           <div className="hero-social">
             <a href="https://www.linkedin.com/in/charan-ramagiri/" target="_blank" rel="noopener noreferrer" className="social-icon" aria-label="LinkedIn">
-              <span>in</span>
+              <FaLinkedinIn size={18} aria-hidden="true" focusable="false" />
             </a>
             <a href="https://github.com/charanramagiri" target="_blank" rel="noopener noreferrer" className="social-icon" aria-label="GitHub">
-              <span>gh</span>
+              <FaGithub size={18} aria-hidden="true" focusable="false" />
             </a>
             <a href="mailto:charanramagiri2004@gmail.com" className="social-icon" aria-label="Email">
-              <span>@</span>
+              <MdEmail size={18} aria-hidden="true" focusable="false" />
             </a>
           </div>
 
