@@ -140,6 +140,7 @@ function Hero() {
                     }
               }
             />
+
             <motion.img
               src={profile}
               alt="Charan Ramagiri"

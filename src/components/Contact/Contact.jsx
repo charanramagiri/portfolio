@@ -72,7 +72,7 @@ function Contact() {
 
         <motion.div className="contact-links" variants={itemVariant}>
           <a href="mailto:charanramagiri2004@gmail.com">
-            📧 charanramagiri2004@gmail.com
+            Email
           </a>
 
           <a
@@ -80,7 +80,7 @@ function Contact() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            🔗 LinkedIn
+            LinkedIn
           </a>
 
           <a
@@ -88,7 +88,7 @@ function Contact() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            💻 GitHub
+            GitHub
           </a>
         </motion.div>
       </div>
