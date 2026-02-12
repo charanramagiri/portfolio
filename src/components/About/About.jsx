@@ -60,16 +60,19 @@ function About() {
       variants={containerVariant}
     >
       <div className="about-container">
-        <AnimatedText text="Let me tell you a bit about myself." as="p" className="section-transition" />
         
         <AnimatedText text="A little about me" as="h2" />
 
         <motion.p variants={itemVariant}>
-          I'm a final-year Computer Science student (B.Tech) focused on full stack web development. I build projects using React, JavaScript, Node.js, SQL, and occasionally explore Machine Learning.
+          I am a B.Tech Final Year Computer Science student with a strong foundation in Java, Object-Oriented Programming, and Data Structures & Algorithms.
         </motion.p>
 
         <motion.p variants={itemVariant}>
-          I'm actively seeking internship and entry-level full stack developer opportunities where I can apply what I've learned and continue growing.
+          I have hands-on experience building web applications using HTML, CSS, JavaScript, React, SQL, and REST APIs. I enjoy solving complex problems and writing efficient solutions with optimized time and space complexity.
+        </motion.p>
+
+        <motion.p variants={itemVariant}>
+          I am a disciplined and hardworking individual who ensures tasks are completed within deadlines. Currently, I am seeking opportunities where I can contribute to real-world projects while continuously learning and growing as a Software Developer.
         </motion.p>
 
       </div>
