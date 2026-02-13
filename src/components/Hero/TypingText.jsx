@@ -84,7 +84,7 @@ function TypingText() {
       minWidth: "280px", 
       display: "inline-block",
       background: "linear-gradient(135deg, rgba(0, 217, 255, 0.2), rgba(181, 55, 242, 0.2))",
-      padding: "4px 12px",
+      padding: "var(--space-0-5) var(--space-1-5)",
       borderRadius: "6px",
       fontWeight: "500"
     }}>

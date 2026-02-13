@@ -1,99 +1,18 @@
 import "./Skills.css";
 import { motion, useReducedMotion } from "framer-motion";
 import AnimatedText from "../AnimatedText/AnimatedText";
-
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.12,
-      delayChildren: 0.5,
-    },
-  },
-};
-
-const containerVariantsReduced = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0,
-      delayChildren: 0,
-    },
-  },
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.85,
-      ease: [0.25, 0.1, 0.25, 1],
-    },
-  },
-};
-
-const itemVariantsReduced = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      duration: 0.2,
-    },
-  },
-};
-
-const cardVariants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.75,
-      ease: [0.25, 0.1, 0.25, 1],
-    },
-  },
-};
-
-const cardVariantsReduced = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      duration: 0.2,
-    },
-  },
-};
-
-const skillsContainerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-      delayChildren: 0.3,
-    },
-  },
-};
-
-const skillsContainerVariantsReduced = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0,
-      delayChildren: 0,
-    },
-  },
-};
+import {
+  sectionContainerVariants,
+  sectionContainerVariantsReduced,
+  cardVariants,
+  cardVariantsReduced,
+  skillsContainerVariants,
+  skillsContainerVariantsReduced,
+} from "../../utils/animations";
 
 function Skills() {
   const shouldReduceMotion = useReducedMotion();
-  const containerVariant = shouldReduceMotion ? containerVariantsReduced : containerVariants;
-  const itemVariant = shouldReduceMotion ? itemVariantsReduced : itemVariants;
+  const containerVariant = shouldReduceMotion ? sectionContainerVariantsReduced : sectionContainerVariants;
   const cardVariant = shouldReduceMotion ? cardVariantsReduced : cardVariants;
   const skillsContainerVariant = shouldReduceMotion ? skillsContainerVariantsReduced : skillsContainerVariants;
   return (

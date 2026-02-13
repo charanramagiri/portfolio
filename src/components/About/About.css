@@ -1,5 +1,5 @@
 .about {
-    padding: 120px 40px;
+    padding: var(--space-15) var(--space-5);
     background: linear-gradient(135deg, var(--bg-primary) 0%, rgba(42, 42, 42, 0.3) 100%);
     color: var(--text-primary);
     position: relative;
@@ -23,16 +23,16 @@
 
 .about-container {
     max-width: 700px;
-    margin: 0 auto;
+    margin: var(--space-0) auto;
     text-align: center;
     position: relative;
     z-index: 1;
 }
 
 .section-transition {
-    font-size: 14px;
+    font-size: var(--font-base);
     color: var(--accent-primary);
-    margin-bottom: 40px;
+    margin-bottom: var(--space-5);
     font-weight: 600;
     font-style: normal;
     text-transform: uppercase;
@@ -40,23 +40,23 @@
 }
 
 .about h2 {
-    font-size: 42px;
-    margin-bottom: 48px;
+    font-size: var(--font-4xl);
+    margin-bottom: var(--space-6);
     font-weight: 700;
     color: var(--text-primary);
     letter-spacing: -1px;
 }
 
 .about p {
-    font-size: 16px;
+    font-size: var(--font-lg);
     line-height: 1.8;
-    margin-bottom: 28px;
+    margin-bottom: var(--space-3-5);
     color: var(--text-secondary);
     font-weight: 400;
 }
 
 .about p:last-child {
-    margin-bottom: 0;
+    margin-bottom: var(--space-0);
 }
 
 .highlight {
@@ -74,10 +74,10 @@
 
 @media (max-width: 768px) {
     .about {
-        padding: 80px 20px;
+        padding: var(--space-10) var(--space-2-5);
     }
 
     .about h2 {
-        font-size: 32px;
+        font-size: var(--font-3xl);
     }
 }

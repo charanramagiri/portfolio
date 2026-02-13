@@ -2,95 +2,14 @@ import "./Projects.css";
 import projects from "../../data/projects";
 import { motion, useReducedMotion } from "framer-motion";
 import AnimatedText from "../AnimatedText/AnimatedText";
-
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.12,
-      delayChildren: 0.5,
-    },
-  },
-};
-
-const containerVariantsReduced = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0,
-      delayChildren: 0,
-    },
-  },
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.85,
-      ease: [0.25, 0.1, 0.25, 1],
-    },
-  },
-};
-
-const itemVariantsReduced = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      duration: 0.2,
-    },
-  },
-};
-
-const cardVariants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.75,
-      ease: [0.25, 0.1, 0.25, 1],
-    },
-  },
-};
-
-const cardVariantsReduced = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      duration: 0.2,
-    },
-  },
-};
-
-// Variants for featured project with subtle depth
-const featuredCardVariants = {
-  hidden: { opacity: 0, y: 40 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.85,
-      ease: [0.25, 0.1, 0.25, 1],
-    },
-  },
-};
-
-const featuredCardVariantsReduced = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      duration: 0.2,
-    },
-  },
-};
+import {
+  sectionContainerVariants,
+  sectionContainerVariantsReduced,
+  sectionItemVariants,
+  sectionItemVariantsReduced,
+  featuredCardVariants,
+  featuredCardVariantsReduced,
+} from "../../utils/animations";
 
 function ProjectCard({ project, index = 0 }) {
   const shouldReduceMotion = useReducedMotion();
@@ -139,8 +58,8 @@ function Projects() {
   const shouldReduceMotion = useReducedMotion();
   const featuredProject = projects[0];
   const otherProjects = projects.slice(1);
-  const containerVariant = shouldReduceMotion ? containerVariantsReduced : containerVariants;
-  const itemVariant = shouldReduceMotion ? itemVariantsReduced : itemVariants;
+  const containerVariant = shouldReduceMotion ? sectionContainerVariantsReduced : sectionContainerVariants;
+  const itemVariant = shouldReduceMotion ? sectionItemVariantsReduced : sectionItemVariants;
   const featuredCardVariant = shouldReduceMotion ? featuredCardVariantsReduced : featuredCardVariants;
 
   return (
