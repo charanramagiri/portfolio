@@ -178,6 +178,16 @@
     opacity: 0.8;
 }
 
+@media (max-width: 1200px) and (min-width: 1025px) {
+    .cards-container {
+        grid-template-columns: 1fr;
+    }
+
+    .about-card--full {
+        grid-column: auto;
+    }
+}
+
 @media (max-width: 1024px) {
     .about-layout {
         display: flex;
