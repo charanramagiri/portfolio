@@ -1,129 +1,183 @@
 import "./Projects.css";
 import projects from "../../data/projects";
 import { motion, useReducedMotion } from "framer-motion";
-import AnimatedText from "../AnimatedText/AnimatedText";
-import {
-  sectionContainerVariants,
-  sectionContainerVariantsReduced,
-  sectionItemVariants,
-  sectionItemVariantsReduced,
-  featuredCardVariants,
-  featuredCardVariantsReduced,
-} from "../../utils/animations";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination, A11y, Navigation, Autoplay } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
 
-function ProjectCard({ project, index = 0 }) {
+function ProjectShowcase({ project, index }) {
   const shouldReduceMotion = useReducedMotion();
-  // Vary initial y slightly for depth effect
-  const initialY = shouldReduceMotion ? 0 : 30 + (index % 3) * 5;
-  
-  return (
-    <motion.div
-      className="project-card secondary"
-      initial={shouldReduceMotion ? { opacity: 0 } : { opacity: 0, y: initialY }}
-      whileInView={shouldReduceMotion ? { opacity: 1 } : { opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.2 }}
-      transition={
-        shouldReduceMotion
-          ? { duration: 0.2 }
-          : {
-              duration: 0.75,
-              ease: [0.25, 0.1, 0.25, 1],
-              delay: index * 0.1,
-            }
+  const rowVariants = shouldReduceMotion
+    ? {
+        hidden: { opacity: 0 },
+        visible: {
+          opacity: 1,
+          transition: {
+            duration: 0.2,
+            staggerChildren: 0,
+            delayChildren: 0,
+          },
+        },
       }
+    : {
+        hidden: { opacity: 0, y: 20 },
+        visible: {
+          opacity: 1,
+          y: 0,
+          transition: {
+            duration: 0.6,
+            ease: [0.22, 1, 0.36, 1],
+            staggerChildren: 0.1,
+            delayChildren: index * 0.08,
+          },
+        },
+      };
+
+  const mediaVariants = shouldReduceMotion
+    ? {
+        hidden: { opacity: 0 },
+        visible: {
+          opacity: 1,
+          transition: { duration: 0.2 },
+        },
+      }
+    : {
+        hidden: { opacity: 0, x: project.reverse ? 30 : -30 },
+        visible: {
+          opacity: 1,
+          x: 0,
+          transition: {
+            duration: 0.6,
+            ease: [0.22, 1, 0.36, 1],
+          },
+        },
+      };
+
+  const contentItemVariants = shouldReduceMotion
+    ? {
+        hidden: { opacity: 0 },
+        visible: {
+          opacity: 1,
+          transition: { duration: 0.2 },
+        },
+      }
+    : {
+        hidden: { opacity: 0, y: 16 },
+        visible: {
+          opacity: 1,
+          y: 0,
+          transition: {
+            duration: 0.6,
+            ease: [0.22, 1, 0.36, 1],
+          },
+        },
+      };
+
+  return (
+    <motion.article
+      className={`project-cinematic ${project.reverse ? "is-reversed" : ""}`}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.3 }}
+      variants={rowVariants}
     >
-      <h3>{project.title}</h3>
+      <motion.div className="project-media" variants={mediaVariants}>
+        <Swiper
+          modules={[Pagination, A11y, Navigation, Autoplay]}
+          slidesPerView={1}
+          spaceBetween={0}
+          loop={true}
+          speed={550}
+          pagination={{ clickable: true }}
+          autoplay={{
+            delay: 3000,
+            disableOnInteraction: false,
+            pauseOnMouseEnter: true,
+          }}
+          navigation={{
+            prevEl: `.project-nav-prev-${project.id}`,
+            nextEl: `.project-nav-next-${project.id}`,
+          }}
+        >
+          {project.images.map((image, slideIndex) => (
+            <SwiperSlide key={`${project.id}-slide-${slideIndex}`}>
+              <img src={image} alt={`${project.imageAlt} - screenshot ${slideIndex + 1}`} loading="lazy" />
+            </SwiperSlide>
+          ))}
+        </Swiper>
 
-      <p className="project-description">
-        {project.description}
-      </p>
+        <button
+          className={`project-nav project-nav-prev project-nav-prev-${project.id}`}
+          type="button"
+          aria-label={`Previous screenshot for ${project.title}`}
+        >
+          &#8249;
+        </button>
+        <button
+          className={`project-nav project-nav-next project-nav-next-${project.id}`}
+          type="button"
+          aria-label={`Next screenshot for ${project.title}`}
+        >
+          &#8250;
+        </button>
 
-      <p className="project-tech">
-        <strong>Tech Stack:</strong> {project.tech}
-      </p>
+        <div className="project-tech-overlay" aria-hidden="true">
+          {project.techStack.map((tech) => (
+            <span className="project-badge" key={`${project.id}-overlay-${tech}`}>
+              {tech}
+            </span>
+          ))}
+        </div>
+      </motion.div>
 
-      <a
-        href={project.github}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="project-link"
-      >
-        View on GitHub
-      </a>
-    </motion.div>
+      <motion.div className="project-content">
+        <motion.h3 variants={contentItemVariants}>{project.title}</motion.h3>
+
+        <motion.p className="project-description" variants={contentItemVariants}>
+          {project.description}
+        </motion.p>
+
+        <motion.p className="project-description project-description--extra" variants={contentItemVariants}>
+          {project.extraDescription}
+        </motion.p>
+
+        <motion.div className="project-actions" variants={contentItemVariants}>
+          <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="project-btn project-btn--primary">
+            GitHub Repository
+          </a>
+
+          {project.liveDemoUrl ? (
+            <a href={project.liveDemoUrl} target="_blank" rel="noopener noreferrer" className="project-btn project-btn--secondary">
+              Live Demo
+            </a>
+          ) : (
+            <button className="project-btn project-btn--secondary project-btn--disabled" type="button" disabled>
+              Coming Soon
+            </button>
+          )}
+        </motion.div>
+      </motion.div>
+    </motion.article>
   );
 }
 
 function Projects() {
-  const shouldReduceMotion = useReducedMotion();
-  const featuredProject = projects[0];
-  const otherProjects = projects.slice(1);
-  const containerVariant = shouldReduceMotion ? sectionContainerVariantsReduced : sectionContainerVariants;
-  const itemVariant = shouldReduceMotion ? sectionItemVariantsReduced : sectionItemVariants;
-  const featuredCardVariant = shouldReduceMotion ? featuredCardVariantsReduced : featuredCardVariants;
-
+  const MotionSection = motion.section;
+  const MotionDiv = motion.div;
   return (
-    <motion.section
-      className="projects"
-      id="projects"
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, amount: 0.2 }}
-      variants={containerVariant}
-    >
+    <MotionSection className="projects" id="projects">
       <div className="projects-wrapper">
-        <AnimatedText text="Here are some things I've built." as="p" className="section-transition" />
-        
-        <AnimatedText text="Selected work" as="h2" />
+        <h2>PROJECTS</h2>
 
-        <motion.p className="projects-intro" variants={itemVariant}>
-          Here's a small selection of things I've built.
-        </motion.p>
-
-        <motion.div
-          className="featured-project"
-          variants={featuredCardVariant}
-        >
-          <div className="project-card featured">
-            <h3>{featuredProject.title}</h3>
-
-            <p className="project-description">
-              {featuredProject.description}
-            </p>
-
-            <p className="project-tech">
-              <strong>Tech Stack:</strong> {featuredProject.tech}
-            </p>
-
-            <a
-              href={featuredProject.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="project-link"
-            >
-              View on GitHub
-            </a>
-          </div>
-        </motion.div>
-
-        {otherProjects.length > 0 && (
-          <motion.div
-            className="other-projects"
-            variants={containerVariant}
-          >
-            <motion.div className="projects-container" variants={containerVariant}>
-              {otherProjects.map((project, index) => (
-                <ProjectCard
-                  key={index}
-                  project={project}
-                  index={index}
-                />
-              ))}
-            </motion.div>
-          </motion.div>
-        )}
+        <MotionDiv className="projects-cinematic-list">
+          {projects.map((project, index) => (
+            <ProjectShowcase key={project.id} project={project} index={index} />
+          ))}
+        </MotionDiv>
       </div>
-    </motion.section>
+    </MotionSection>
   );
 }
 
