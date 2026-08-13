@@ -2,7 +2,7 @@
     background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
     color: var(--text-tertiary);
     text-align: center;
-    padding: var(--space-6) var(--space-2-5) var(--space-4);
+    padding: var(--space-5) var(--space-2-5) var(--space-4);
     font-size: var(--font-sm);
     font-weight: 400;
     border-top: 1px solid var(--border-light);
@@ -11,9 +11,17 @@
 .footer-text {
     margin-bottom: var(--space-1);
     color: var(--text-muted);
+    line-height: 1.5;
 }
 
 .footer-built {
     color: var(--text-tertiary);
     font-size: var(--font-sm);
+    line-height: 1.5;
+}
+
+@media (max-width: 430px) {
+    .footer {
+        padding: var(--space-4) var(--space-2) var(--space-3);
+    }
 }
