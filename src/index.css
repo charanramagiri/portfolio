@@ -92,8 +92,12 @@ html {
 }
 
 section {
-  scroll-margin-top: var(--space-10);
+  scroll-margin-top: 0;
   transition: background-color 0.3s ease;
+}
+
+#home {
+  scroll-margin-top: var(--space-10);
 }
 
 /* Scrollbar Styling */

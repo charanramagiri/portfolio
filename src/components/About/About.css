@@ -36,6 +36,7 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: var(--space-3);
+    min-width: 0;
 }
 
 .about-card--full {
@@ -55,12 +56,15 @@
     border-radius: 20px;
     padding: var(--space-4);
     box-shadow: 0 8px 18px rgba(0, 0, 0, 0.18);
-    transition: all 0.3s ease;
+    display: flex;
+    min-width: 0;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
 .about-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 0 26px rgba(0, 217, 255, 0.34), 0 0 44px rgba(0, 217, 255, 0.16);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.2), 0 0 22px rgba(0, 217, 255, 0.2);
     border-color: rgba(0, 217, 255, 0.35);
 }
 
@@ -94,6 +98,7 @@
     font-weight: 600;
     margin-top: var(--space-0);
     margin-bottom: var(--space-1-5);
+    overflow-wrap: break-word;
 }
 
 .about-card-meta {
@@ -102,6 +107,7 @@
     font-weight: 600;
     margin-top: var(--space-2);
     margin-bottom: var(--space-0);
+    overflow-wrap: break-word;
 }
 
 .about-card-school {
@@ -109,6 +115,7 @@
     color: var(--text-secondary);
     line-height: 1.5;
     margin: var(--space-0) var(--space-0) var(--space-1);
+    overflow-wrap: break-word;
 }
 
 .about-card-value {
@@ -121,6 +128,9 @@
     font-weight: 700;
     margin-top: var(--space-0);
     margin-bottom: var(--space-0);
+    min-width: 0;
+    flex-wrap: wrap;
+    overflow-wrap: normal;
 }
 
 .about-card-value-number {
@@ -133,6 +143,14 @@
     font-size: var(--font-lg);
     font-weight: 500;
     color: var(--text-secondary);
+    min-width: 0;
+    overflow-wrap: normal;
+}
+
+.about-card--feature .about-card-value {
+    flex-wrap: nowrap;
+    font-size: clamp(1.75rem, 2vw, var(--font-4xl));
+    white-space: nowrap;
 }
 
 .about-card:focus-visible {
@@ -151,6 +169,7 @@
     border-radius: 24px;
     padding: var(--space-5);
     box-shadow: var(--glow-cyan);
+    min-width: 0;
 }
 
 .about-content h2 {
