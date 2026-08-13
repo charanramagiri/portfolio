@@ -117,15 +117,6 @@
     line-height: 1.6;
 }
 
-.hero p {
-    font-size: var(--font-lg);
-    line-height: 1.8;
-    margin-bottom: var(--space-5);
-    color: var(--text-secondary);
-    max-width: 100%;
-    font-weight: 400;
-}
-
 .typing-cursor {
     display: inline-block;
     margin-left: var(--space-0-25);

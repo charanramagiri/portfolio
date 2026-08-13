@@ -12,6 +12,7 @@
 }
 
 .logo {
+  text-decoration: none;
   font-size: var(--font-logo);
   font-weight: 600;
   letter-spacing: -0.5px;
@@ -23,9 +24,7 @@
   transition: opacity 0.3s ease;
 }
 
-.logo:hover {
-  opacity: 0.8;
-}
+.logo:hover { opacity: 0.8; }
 
 .nav-links {
   list-style: none;
@@ -58,25 +57,19 @@
   transition: width 0.3s ease;
 }
 
-.nav-links a:hover {
-  color: var(--accent-primary);
-}
-
-.nav-links a:hover::after {
-  width: 100%;
-}
+.nav-links a:hover { color: var(--accent-primary); }
+.nav-links a:hover::after { width: 100%; }
 
 @media (max-width: 768px) {
-  .navbar {
-    padding: var(--space-1-5) var(--space-2-5);
-  }
+  .navbar { padding: var(--space-1-5) var(--space-2-5); }
+  .logo { font-size: var(--font-xl); }
+  .nav-links { gap: var(--space-1-5); }
+  .nav-links li { font-size: var(--font-sm); }
+}
 
-  .logo {
-    font-size: var(--font-xl);
-  }
-
-  .nav-links {
-    gap: var(--space-2);
-    font-size: var(--font-sm);
-  }
+@media (max-width: 480px) {
+  .navbar { padding: var(--space-1-25) var(--space-1-5); }
+  .logo { font-size: var(--font-lg); }
+  .nav-links { gap: var(--space-1); }
+  .nav-links li { font-size: var(--font-xs); }
 }

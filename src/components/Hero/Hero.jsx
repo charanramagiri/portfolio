@@ -13,12 +13,15 @@ import {
 
 function Hero() {
   const shouldReduceMotion = useReducedMotion();
+  const MotionSpan = motion.span;
+  const MotionDiv = motion.div;
+  const MotionImg = motion.img;
   const h1Words = ["Hi,", "I'm"];
   const wordVariant = shouldReduceMotion ? wordVariantsReduced : wordVariants;
   const containerVariant = shouldReduceMotion ? textContainerVariantsReduced : textContainerVariants;
 
   return (
-    <section className="hero">
+    <section className="hero" id="home">
       <div className="hero-container">
         <div className="hero-left">
           <div className="hero-social">
@@ -35,7 +38,7 @@ function Hero() {
 
           <div className="hero-content">
             <h1>
-              <motion.span
+              <MotionSpan
                 initial="hidden"
                 animate="visible"
                 variants={containerVariant}
@@ -43,26 +46,26 @@ function Hero() {
               >
                 {h1Words.map((word, index) => (
                   <span key={index} style={{ display: "inline-block", marginRight: "0.25em" }}>
-                    <motion.span variants={wordVariant} style={{ display: "inline-block" }}>
+                    <MotionSpan variants={wordVariant} style={{ display: "inline-block" }}>
                       {word}
-                    </motion.span>
+                    </MotionSpan>
                   </span>
                 ))}
                 <span style={{ display: "inline-block", marginRight: "0.25em" }}>
-                  <motion.span variants={wordVariant} style={{ display: "inline-block" }}>
+                  <MotionSpan variants={wordVariant} style={{ display: "inline-block" }}>
                     <span style={{ color: "#38bdf8" }}>Charan</span>
-                  </motion.span>
+                  </MotionSpan>
                 </span>
                 <span style={{ display: "inline-block" }}>
-                  <motion.span variants={wordVariant} style={{ display: "inline-block" }}>
+                  <MotionSpan variants={wordVariant} style={{ display: "inline-block" }}>
                     .
-                  </motion.span>
+                  </MotionSpan>
                 </span>
-              </motion.span>
+              </MotionSpan>
             </h1>
 
             <h2>
-              <motion.span
+              <MotionSpan
                 initial="hidden"
                 animate="visible"
                 variants={containerVariant}
@@ -70,25 +73,25 @@ function Hero() {
               >
                 
                 <TypingText />
-              </motion.span>
+              </MotionSpan>
             </h2>
 
             <p>
-              I build web applications using React, JavaScript, Python, and Node.js. Currently looking for internship and entry-level full stack developer roles.
+              I build web applications using React, JavaScript, Python, and Node.js. As a 2026 Computer Science graduate, I am currently targeting entry-level software and full stack developer roles.
             </p>
 
             <div className="hero-buttons">
               <a href="/Charan_Ramagiri.pdf" target="_blank" rel="noopener noreferrer" className="btn primary">
                 Resume
               </a>
-              <button className="btn secondary">Contact</button>
+              <a href="#contact" className="btn secondary">Contact</a>
             </div>
           </div>
         </div>
 
         <div className="hero-right">
           <div className="hero-image-wrapper">
-            <motion.div
+            <MotionDiv
               className="hero-blob"
               initial={shouldReduceMotion ? { opacity: 0 } : { y: 40, opacity: 0 }}
               whileInView={shouldReduceMotion ? { opacity: 1 } : { y: 0, opacity: 1 }}
@@ -103,7 +106,7 @@ function Hero() {
               }
             />
 
-            <motion.img
+            <MotionImg
               src={profile}
               alt="Charan Ramagiri"
               className="hero-img"

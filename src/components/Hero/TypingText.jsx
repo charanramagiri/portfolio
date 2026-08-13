@@ -2,9 +2,11 @@ import { useState, useEffect } from "react";
 import { useReducedMotion } from "framer-motion";
 
 const roles = [
+  "Software Developer",
   "Full Stack Developer",
+  "Python Full Stack Developer",
   "Java Developer",
-  "AI/ML Enthusiast",
+  "MERN Stack Developer",
 ];
 
 const TYPING_SPEED = 50; // milliseconds per character
@@ -14,74 +16,65 @@ const INITIAL_DELAY = 800; // delay before starting
 
 function TypingText() {
   const shouldReduceMotion = useReducedMotion();
-  const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
-  const [displayedText, setDisplayedText] = useState("");
-  const [isDeleting, setIsDeleting] = useState(false);
-  const [isPaused, setIsPaused] = useState(false);
-  const [hasStarted, setHasStarted] = useState(false);
+  const [typingState, setTypingState] = useState({
+    currentRoleIndex: 0,
+    displayedText: "",
+    phase: "initial",
+  });
 
   useEffect(() => {
-    if (shouldReduceMotion) {
-      // For reduced motion, just show the first role
-      setDisplayedText(roles[0]);
-      return;
-    }
+    if (shouldReduceMotion) return;
 
-    if (!hasStarted) {
-      const initialTimeout = setTimeout(() => {
-        setHasStarted(true);
-        setDisplayedText(roles[0][0]);
-      }, INITIAL_DELAY);
+    const { phase } = typingState;
+    const delay = phase === "initial"
+      ? INITIAL_DELAY
+      : phase === "paused"
+        ? PAUSE_DURATION
+        : phase === "deleting"
+          ? DELETING_SPEED
+          : TYPING_SPEED;
 
-      return () => clearTimeout(initialTimeout);
-    }
-  }, [hasStarted, shouldReduceMotion]);
+    const timeoutId = setTimeout(() => {
+      setTypingState((current) => {
+        const role = roles[current.currentRoleIndex];
 
-  useEffect(() => {
-    if (shouldReduceMotion || !hasStarted) return;
+        if (current.phase === "initial") {
+          return { ...current, displayedText: role[0], phase: "typing" };
+        }
 
-    const currentRole = roles[currentRoleIndex];
-    let timeoutId;
+        if (current.phase === "paused") {
+          return { ...current, phase: "deleting" };
+        }
 
-    if (isPaused) {
-      // Pause after typing is complete
-      timeoutId = setTimeout(() => {
-        setIsPaused(false);
-        setIsDeleting(true);
-      }, PAUSE_DURATION);
-    } else if (isDeleting) {
-      // Deleting characters
-      if (displayedText.length > 0) {
-        timeoutId = setTimeout(() => {
-          setDisplayedText(currentRole.slice(0, displayedText.length - 1));
-        }, DELETING_SPEED);
-      } else {
-        // Move to next role
-        setIsDeleting(false);
-        setCurrentRoleIndex((prev) => (prev + 1) % roles.length);
-      }
-    } else {
-      // Typing characters
-      if (displayedText.length < currentRole.length) {
-        timeoutId = setTimeout(() => {
-          setDisplayedText(currentRole.slice(0, displayedText.length + 1));
-        }, TYPING_SPEED);
-      } else {
-        // Typing complete, pause
-        setIsPaused(true);
-      }
-    }
+        if (current.phase === "deleting") {
+          if (current.displayedText.length > 0) {
+            return { ...current, displayedText: current.displayedText.slice(0, -1) };
+          }
 
-    return () => {
-      if (timeoutId) {
-        clearTimeout(timeoutId);
-      }
-    };
-  }, [displayedText, isDeleting, isPaused, currentRoleIndex, hasStarted, shouldReduceMotion]);
+          return {
+            currentRoleIndex: (current.currentRoleIndex + 1) % roles.length,
+            displayedText: "",
+            phase: "typing",
+          };
+        }
+
+        const nextText = role.slice(0, current.displayedText.length + 1);
+        return {
+          ...current,
+          displayedText: nextText,
+          phase: nextText.length === role.length ? "paused" : "typing",
+        };
+      });
+    }, delay);
+
+    return () => clearTimeout(timeoutId);
+  }, [typingState, shouldReduceMotion]);
+
+  const displayedText = shouldReduceMotion ? roles[0] : typingState.displayedText;
 
   return (
-    <span style={{ 
-      minWidth: "280px", 
+    <span style={{
+      minWidth: "280px",
       display: "inline-block",
       background: "linear-gradient(135deg, rgba(0, 217, 255, 0.2), rgba(181, 55, 242, 0.2))",
       padding: "var(--space-0-5) var(--space-1-5)",

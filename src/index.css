@@ -92,6 +92,7 @@ html {
 }
 
 section {
+  scroll-margin-top: var(--space-10);
   transition: background-color 0.3s ease;
 }
 

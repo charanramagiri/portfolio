@@ -11,10 +11,14 @@ import {
 
 function About() {
   const shouldReduceMotion = useReducedMotion();
+  const MotionSection = motion.section;
+  const MotionDiv = motion.div;
+  const MotionAnchor = motion.a;
+  const MotionP = motion.p;
   const containerVariant = shouldReduceMotion ? sectionContainerVariantsReduced : sectionContainerVariants;
   const itemVariant = shouldReduceMotion ? sectionItemVariantsReduced : sectionItemVariants;
   return (
-    <motion.section
+    <MotionSection
       className="about"
       id="about"
       initial="hidden"
@@ -23,8 +27,8 @@ function About() {
       variants={containerVariant}
     >
       <div className="about-layout">
-        <motion.div className="cards-container" variants={itemVariant}>
-          <motion.div
+        <MotionDiv className="cards-container" variants={itemVariant}>
+          <MotionDiv
             className="about-card about-card--education about-card--full"
             variants={itemVariant}
             transition={shouldReduceMotion ? undefined : { delay: 0.0 }}
@@ -33,11 +37,12 @@ function About() {
               <FaGraduationCap className="about-card-icon" aria-hidden="true" focusable="false" />
               <p className="about-card-label">Education</p>
             </div>
-            <h3 className="about-card-title">B.Tech CSE, ACE Engineering College</h3>
-            <p className="about-card-meta">CGPA: 8.34</p>
-          </motion.div>
+            <h3 className="about-card-title">B.Tech in Computer Science and Engineering</h3>
+            <p className="about-card-school">ACE Engineering College</p>
+            <p className="about-card-meta">Graduation: 2026 · CGPA: 8.50</p>
+          </MotionDiv>
 
-          <motion.div
+          <MotionDiv
             className="about-card about-card--projects about-card--full"
             variants={itemVariant}
             transition={shouldReduceMotion ? undefined : { delay: 0.06 }}
@@ -47,13 +52,15 @@ function About() {
               <p className="about-card-label">Projects</p>
             </div>
             <p className="about-card-value">
-              <span className="about-card-value-number">5</span>
+              <span className="about-card-value-number">3</span>
               <span className="about-card-value-label">Projects</span>
             </p>
-          </motion.div>
+          </MotionDiv>
 
-          <motion.div
+          <MotionAnchor
             className="about-card about-card--certifications"
+            href="#certifications"
+            aria-label="View all 8 certifications"
             variants={itemVariant}
             transition={shouldReduceMotion ? undefined : { delay: 0.12 }}
           >
@@ -62,12 +69,12 @@ function About() {
               <p className="about-card-label">Certifications</p>
             </div>
             <p className="about-card-value">
-              <span className="about-card-value-number">5</span>
+              <span className="about-card-value-number">8</span>
               <span className="about-card-value-label">Certifications</span>
             </p>
-          </motion.div>
+          </MotionAnchor>
 
-          <motion.div
+          <MotionDiv
             className="about-card about-card--feature"
             variants={itemVariant}
             transition={shouldReduceMotion ? undefined : { delay: 0.18 }}
@@ -77,26 +84,26 @@ function About() {
               <p className="about-card-label">Location</p>
             </div>
             <p className="about-card-value">Hyderabad</p>
-          </motion.div>
-        </motion.div>
+          </MotionDiv>
+        </MotionDiv>
 
-        <motion.div className="about-content" variants={itemVariant}>
+        <MotionDiv className="about-content" variants={itemVariant}>
           <AnimatedText text="A little about me" as="h2" />
 
-          <motion.p variants={itemVariant}>
-            I am a B.Tech Final Year Computer Science student with a strong foundation in <span className="highlight">Java</span>, <span className="highlight">Object-Oriented Programming</span>, and <span className="highlight">Data Structures & Algorithms</span>.
-          </motion.p>
+          <MotionP variants={itemVariant}>
+            I am a 2026 B.Tech Computer Science and Engineering graduate with a strong foundation in <span className="highlight">Java</span>, <span className="highlight">Object-Oriented Programming</span>, and <span className="highlight">Data Structures & Algorithms</span>.
+          </MotionP>
 
-          <motion.p variants={itemVariant}>
+          <MotionP variants={itemVariant}>
             I have hands-on experience building web applications using HTML, CSS, JavaScript, <span className="highlight">React</span>, SQL, and REST APIs. I enjoy solving complex problems and writing efficient solutions with optimized time and space complexity.
-          </motion.p>
+          </MotionP>
 
-          <motion.p variants={itemVariant}>
+          <MotionP variants={itemVariant}>
             I am a disciplined and hardworking individual who ensures tasks are completed within deadlines. Currently, I am seeking opportunities where I can contribute to real-world projects while continuously learning and growing as a <span className="highlight">Software Developer</span>.
-          </motion.p>
-        </motion.div>
+          </MotionP>
+        </MotionDiv>
       </div>
-    </motion.section>
+    </MotionSection>
   );
 }
 

@@ -50,6 +50,8 @@
 }
 
 .about-card {
+    color: inherit;
+    text-decoration: none;
     border-radius: 20px;
     padding: var(--space-4);
     box-shadow: 0 8px 18px rgba(0, 0, 0, 0.18);
@@ -100,6 +102,13 @@
     font-weight: 600;
     margin-top: var(--space-2);
     margin-bottom: var(--space-0);
+}
+
+.about-card-school {
+    font-size: var(--font-lg);
+    color: var(--text-secondary);
+    line-height: 1.5;
+    margin: var(--space-0) var(--space-0) var(--space-1);
 }
 
 .about-card-value {

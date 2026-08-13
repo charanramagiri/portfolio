@@ -5,13 +5,17 @@ import {
   FaBrain,
   FaCodeBranch,
   FaCubesStacked,
+  FaDatabase,
   FaFireFlameCurved,
 } from "react-icons/fa6";
 import { FaJava } from "react-icons/fa";
 import {
   SiC,
   SiCss3,
+  SiDjango,
+  SiDocker,
   SiExpress,
+  SiFlask,
   SiFramer,
   SiGithub,
   SiGit,
@@ -21,9 +25,11 @@ import {
   SiMysql,
   SiNodedotjs,
   SiPostgresql,
+  SiPostman,
   SiPython,
   SiReact,
   SiSpringboot,
+  SiSqlite,
   SiTailwindcss,
   SiVscodium,
 } from "react-icons/si";
@@ -54,6 +60,9 @@ const skillCategories = [
       { name: "Node.js", Icon: SiNodedotjs, colorClass: "icon-node" },
       { name: "Express", Icon: SiExpress, colorClass: "icon-express" },
       { name: "Spring Boot", Icon: SiSpringboot, colorClass: "icon-spring" },
+      { name: "Django", Icon: SiDjango, colorClass: "icon-django" },
+      { name: "Django REST Framework", Icon: FaCodeBranch, colorClass: "icon-drf" },
+      { name: "Flask", Icon: SiFlask, colorClass: "icon-flask" },
       { name: "RESTful APIs", Icon: FaCodeBranch, colorClass: "icon-rest" },
     ],
   },
@@ -63,6 +72,8 @@ const skillCategories = [
       { name: "MySQL", Icon: SiMysql, colorClass: "icon-mysql" },
       { name: "PostgreSQL", Icon: SiPostgresql, colorClass: "icon-postgresql" },
       { name: "MongoDB", Icon: SiMongodb, colorClass: "icon-mongodb" },
+      { name: "SQLite", Icon: SiSqlite, colorClass: "icon-sqlite" },
+      { name: "SQL", Icon: FaDatabase, colorClass: "icon-sql" },
     ],
   },
   {
@@ -72,6 +83,8 @@ const skillCategories = [
       { name: "GitHub", Icon: SiGithub, colorClass: "icon-github" },
       { name: "VS Code", Icon: SiVscodium, colorClass: "icon-vscode" },
       { name: "Cursor", Icon: FaBolt, colorClass: "icon-cursor" },
+      { name: "Docker", Icon: SiDocker, colorClass: "icon-docker" },
+      { name: "Postman", Icon: SiPostman, colorClass: "icon-postman" },
     ],
   },
   {

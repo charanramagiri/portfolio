@@ -10,10 +10,13 @@ import {
 
 function Contact() {
   const shouldReduceMotion = useReducedMotion();
+  const MotionSection = motion.section;
+  const MotionP = motion.p;
+  const MotionDiv = motion.div;
   const containerVariant = shouldReduceMotion ? sectionContainerVariantsReduced : sectionContainerVariants;
   const itemVariant = shouldReduceMotion ? sectionItemVariantsReduced : sectionItemVariants;
   return (
-    <motion.section
+    <MotionSection
       className="contact"
       id="contact"
       initial="hidden"
@@ -24,15 +27,15 @@ function Contact() {
       <div className="contact-wrapper">
         <AnimatedText text="Let's connect." as="p" className="section-transition" />
 
-        <motion.p className="contact-intro" variants={itemVariant}>
+        <MotionP className="contact-intro" variants={itemVariant}>
           I'm actively seeking internship and entry-level full stack developer roles. If you think my work aligns with what you're looking for, I'd be happy to connect.
-        </motion.p>
+        </MotionP>
 
-        <motion.p className="contact-closing" variants={itemVariant}>
+        <MotionP className="contact-closing" variants={itemVariant}>
           Feel free to reach out through any of these channels.
-        </motion.p>
+        </MotionP>
 
-        <motion.div className="contact-links" variants={itemVariant}>
+        <MotionDiv className="contact-links" variants={itemVariant}>
           <a href="mailto:charanramagiri2004@gmail.com">
             Email
           </a>
@@ -52,9 +55,9 @@ function Contact() {
           >
             GitHub
           </a>
-        </motion.div>
+        </MotionDiv>
       </div>
-    </motion.section>
+    </MotionSection>
   );
 }
 
