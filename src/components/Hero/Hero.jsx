@@ -5,8 +5,6 @@ import { FaGithub, FaLinkedinIn } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import TypingText from "./TypingText";
 import {
-  wordVariants,
-  wordVariantsReduced,
   textContainerVariants,
   textContainerVariantsReduced,
 } from "../../utils/animations";
@@ -14,10 +12,9 @@ import {
 function Hero() {
   const shouldReduceMotion = useReducedMotion();
   const MotionSpan = motion.span;
+  const MotionH1 = motion.h1;
   const MotionDiv = motion.div;
   const MotionImg = motion.img;
-  const h1Words = ["Hi,", "I'm"];
-  const wordVariant = shouldReduceMotion ? wordVariantsReduced : wordVariants;
   const containerVariant = shouldReduceMotion ? textContainerVariantsReduced : textContainerVariants;
 
   return (
@@ -37,32 +34,13 @@ function Hero() {
           </div>
 
           <div className="hero-content">
-            <h1>
-              <MotionSpan
-                initial="hidden"
-                animate="visible"
-                variants={containerVariant}
-                style={{ display: "inline-block" }}
-              >
-                {h1Words.map((word, index) => (
-                  <span key={index} style={{ display: "inline-block", marginRight: "0.25em" }}>
-                    <MotionSpan variants={wordVariant} style={{ display: "inline-block" }}>
-                      {word}
-                    </MotionSpan>
-                  </span>
-                ))}
-                <span style={{ display: "inline-block", marginRight: "0.25em" }}>
-                  <MotionSpan variants={wordVariant} style={{ display: "inline-block" }}>
-                    <span style={{ color: "#38bdf8" }}>Charan</span>
-                  </MotionSpan>
-                </span>
-                <span style={{ display: "inline-block" }}>
-                  <MotionSpan variants={wordVariant} style={{ display: "inline-block" }}>
-                    .
-                  </MotionSpan>
-                </span>
-              </MotionSpan>
-            </h1>
+            <MotionH1
+              initial={shouldReduceMotion ? { opacity: 0 } : { opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={shouldReduceMotion ? { duration: 0.2 } : { duration: 0.55, ease: [0.25, 0.1, 0.25, 1] }}
+            >
+              <span className="hero-heading-text">Hi, I’m Charan.</span>
+            </MotionH1>
 
             <h2>
               <MotionSpan

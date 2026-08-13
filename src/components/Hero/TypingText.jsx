@@ -73,14 +73,7 @@ function TypingText() {
   const displayedText = shouldReduceMotion ? roles[0] : typingState.displayedText;
 
   return (
-    <span style={{
-      minWidth: "280px",
-      display: "inline-block",
-      background: "linear-gradient(135deg, rgba(0, 217, 255, 0.2), rgba(181, 55, 242, 0.2))",
-      padding: "var(--space-0-5) var(--space-1-5)",
-      borderRadius: "6px",
-      fontWeight: "500"
-    }}>
+    <span className="typing-text">
       {displayedText}
       {!shouldReduceMotion && <span className="typing-cursor">|</span>}
     </span>
