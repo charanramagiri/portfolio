@@ -118,7 +118,7 @@ const ProjectShowcase = memo(function ProjectShowcase({ project, index }) {
           loop={true}
           speed={550}
           pagination={{ clickable: true }}
-          autoplay={{
+          autoplay={shouldReduceMotion ? false : {
             delay: 3000,
             disableOnInteraction: false,
             pauseOnMouseEnter: true,
@@ -130,7 +130,12 @@ const ProjectShowcase = memo(function ProjectShowcase({ project, index }) {
         >
           {project.images.map((image, slideIndex) => (
             <SwiperSlide key={`${project.id}-slide-${slideIndex}`}>
-              <img src={image.src} alt={image.alt} loading="lazy" />
+              <img
+                src={image.src}
+                alt={image.alt}
+                loading="lazy"
+                decoding="async"
+              />
             </SwiperSlide>
           ))}
         </Swiper>

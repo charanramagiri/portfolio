@@ -282,6 +282,15 @@
     50% { transform: translateY(-8px); }
 }
 
+@media (prefers-reduced-motion: reduce) {
+    .hero-heading-text,
+    .hero-blob,
+    .scroll-hint,
+    .typing-cursor {
+        animation: none;
+    }
+}
+
 @media (max-width: 968px) {
     .hero {
         padding-top: var(--space-8);

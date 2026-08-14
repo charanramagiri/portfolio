@@ -1,8 +1,9 @@
 import "./Navbar.css";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const navbarRef = useRef(null);
 
   useEffect(() => {
     const handleKeyDown = (event) => {
@@ -17,11 +18,19 @@ function Navbar() {
       }
     };
 
+    const handlePointerDown = (event) => {
+      if (navbarRef.current && !navbarRef.current.contains(event.target)) {
+        setIsMenuOpen(false);
+      }
+    };
+
     document.addEventListener("keydown", handleKeyDown);
+    document.addEventListener("pointerdown", handlePointerDown);
     window.addEventListener("resize", handleResize);
 
     return () => {
       document.removeEventListener("keydown", handleKeyDown);
+      document.removeEventListener("pointerdown", handlePointerDown);
       window.removeEventListener("resize", handleResize);
     };
   }, []);
@@ -29,7 +38,7 @@ function Navbar() {
   const closeMenu = () => setIsMenuOpen(false);
 
   return (
-    <nav className="navbar">
+    <nav className="navbar" ref={navbarRef}>
       <a className="logo" href="#home" aria-label="Go to the top of the page" onClick={closeMenu}>Charan</a>
 
       <button

@@ -87,6 +87,11 @@ function Hero() {
             <MotionImg
               src={profile}
               alt="Charan Ramagiri"
+              width="800"
+              height="800"
+              loading="eager"
+              fetchPriority="high"
+              decoding="async"
               className="hero-img"
               initial={shouldReduceMotion ? { opacity: 0 } : { y: 50, opacity: 0 }}
               whileInView={shouldReduceMotion ? { opacity: 1 } : { y: 0, opacity: 1 }}
