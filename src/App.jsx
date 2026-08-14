@@ -31,12 +31,14 @@ function App() {
         aria-hidden="true"
       />
       <Navbar />
-      <Hero />
-      <About />
-      <Skills />
-      <Projects />
-      <Certifications />
-      <Contact />
+      <main>
+        <Hero />
+        <About />
+        <Skills />
+        <Projects />
+        <Certifications />
+        <Contact />
+      </main>
       <Footer />
     </div>
   );
