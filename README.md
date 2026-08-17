@@ -2,6 +2,8 @@
 
 A responsive developer portfolio presenting my skills, projects, certifications, and contact information as a 2026 Computer Science graduate pursuing Software Developer and Full Stack Developer opportunities.
 
+**Live portfolio:** [https://charanramagiri.vercel.app/](https://charanramagiri.vercel.app/)
+
 ## Tech Stack
 
 - React
@@ -39,6 +41,8 @@ VITE_FORMSPREE_ENDPOINT=https://formspree.io/f/YOUR_FORM_ID
 ```
 
 Do not commit real environment values.
+
+For Vercel, add `VITE_FORMSPREE_ENDPOINT` under **Project Settings → Environment Variables** and enable it for **Production**. Vite injects environment variables at build time, so redeploy the project after adding or changing this value. Preview and Development environments may be enabled separately if needed.
 
 ## Production Build
 
