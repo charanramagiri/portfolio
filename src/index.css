@@ -92,12 +92,40 @@ html {
 }
 
 section {
-  scroll-margin-top: var(--space-10);
+  --section-anchor-padding: var(--space-15);
+  scroll-margin-top: calc(
+    var(--navbar-height, 68px) - var(--section-anchor-padding) + var(--space-4)
+  );
   transition: background-color 0.3s ease;
 }
 
 #home {
-  scroll-margin-top: 0;
+  scroll-margin-top: var(--navbar-height, 68px);
+}
+
+@media (max-width: 1024px) {
+  #projects,
+  #certifications {
+    --section-anchor-padding: var(--space-10);
+  }
+}
+
+@media (max-width: 900px) {
+  #contact {
+    --section-anchor-padding: var(--space-10);
+  }
+}
+
+@media (max-width: 768px) {
+  #about {
+    --section-anchor-padding: var(--space-10);
+  }
+}
+
+@media (max-width: 767px) {
+  #skills {
+    --section-anchor-padding: var(--space-10);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

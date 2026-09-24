@@ -1,5 +1,8 @@
 .hero {
-    min-height: 88vh;
+    /* The sticky navbar remains in normal document flow. Its rendered height
+       is measured by Navbar and used here so Hero fills the remaining viewport. */
+    min-height: calc(100vh - var(--navbar-height, 68px));
+    min-height: calc(100dvh - var(--navbar-height, 68px));
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -345,8 +348,6 @@
 @media (max-width: 640px) {
     .hero {
         padding: var(--space-7-5) var(--space-2-5) var(--space-10);
-        min-height: 100vh;
-        min-height: 100svh;
     }
 
     .hero-container {

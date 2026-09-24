@@ -1,9 +1,27 @@
 import "./Navbar.css";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 
 function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navbarRef = useRef(null);
+
+  useLayoutEffect(() => {
+    const navbar = navbarRef.current;
+    if (!navbar) return undefined;
+
+    const updateNavbarHeight = () => {
+      document.documentElement.style.setProperty(
+        "--navbar-height",
+        `${navbar.getBoundingClientRect().height}px`,
+      );
+    };
+
+    updateNavbarHeight();
+    const observer = new ResizeObserver(updateNavbarHeight);
+    observer.observe(navbar);
+
+    return () => observer.disconnect();
+  }, []);
 
   useEffect(() => {
     const handleKeyDown = (event) => {
